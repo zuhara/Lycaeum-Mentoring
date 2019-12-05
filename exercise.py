@@ -67,3 +67,72 @@ def tables5(x):
             print("{:3}".format(1),end=' ')
         print("\n")
 
+# Q9
+def fizzbizz(x):
+    for i in range (1,x+1):
+        if i % 15 == 0 :
+            print("fizzbizz")
+        elif i % 5 == 0:
+            print("bizz")
+        elif i % 3 == 0:
+            print("fizz")
+        else:
+            print(i)
+
+# Q10
+def biggest_in_list(x):
+    # x.sort(reverse=True)
+    # print(x[0])
+    temp = x[0]
+    for i in x:
+        if i > temp:
+            temp = i 
+    return temp
+
+# Q11
+# def biggest2_in_list(x):
+#     l=[]
+#     temp = x[0]
+#     for i in x:
+#         if i > temp:
+#             temp = i
+#             if temp not in l:
+#                 l.append(temp)
+#     print(l)
+#     return l[-1],l[-2]
+
+# exercise.biggest2_in_list([1,-1,45,-4,8,-2])---->not working for this{list index out of range}
+
+def biggest2_in_list(x):
+    for i in range(0,len(x)):
+        temp = i
+        for j in range(i+1,len(x)):
+            if x[i] > x[j]:
+                temp = j
+        x[i],x[temp] = x[temp],x[j]
+        return x[-1],x[-2]
+        
+                
+
+def biggest_n(x,n):
+    return 0
+        
+
+# Q12
+def panagram(s):
+    for i in "abcdefghijklmnopqrstuvwxyz":
+        if i not in s:
+            return False
+    return True
+
+# Q13
+def freq(s):
+    d = {}
+    for i in "abcdefghijklmnopqrstuvwxyz":
+        if i in s:
+            if i not in d.keys():
+                d[i] += 1
+    return d
+
+    
+            
