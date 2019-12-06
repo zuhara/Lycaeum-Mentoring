@@ -128,10 +128,11 @@ def panagram(s):
 # Q13
 def freq(s):
     d = {}
-    for i in "abcdefghijklmnopqrstuvwxyz":
-        if i in s:
-            if i not in d.keys():
-                d[i] += 1
+    for i in s:
+        if i in d:
+            d[i] = d[i] + 1
+        else:
+            d[i] = 1
     return d
 
     
