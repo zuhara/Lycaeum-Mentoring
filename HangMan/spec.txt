@@ -1,0 +1,60 @@
+Selecting words
+1. No punctuation X
+2. Atleast five letters long
+3. Shouldn't begin with capital letter
+4. Word should be completely lowercase
+5. The word shouldn't be repeated each time
+
+No guess
+check the number of underscores 
+
+single letter guess
+
+double letter guess
+---------------------------------------------
+def mask_word(secret_word, guesses):
+    if guesses == []:
+        return "_" * len(secret_word)
+    else:
+	l=[]
+	s = list(secret_word)
+	if guesses[0] in s: 
+      	   for letter in secret_word:
+               if letter == guesses[0]:
+                  l.append(guesses[0])
+             	else:
+                  l.append("_")
+	secret_word = "".join(l)
+       	return secret_word
+----------------------------------------------
+give three guesses
+-----------------------------------------------
+def mask_word(secret_word, guesses):
+    if guesses == []:
+        return "_" * len(secret_word)
+    else:
+        for i in secret_word:
+            if i not in guesses:
+                secret_word = secret_word.replace(i,"_")
+        return secret_word
+
+------------------------------------------------
+
+staus
+
+play
+correct guess----->normal
+		--->win
+
+    
+wrong guess ------>normal
+      	    ------>lose
+
+repeat correct letter
+repeat wrong letter
+
+
+
+
+
+
