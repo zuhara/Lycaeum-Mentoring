@@ -40,9 +40,8 @@ Turns left : {}
 def move(sw,cg,wg,ng,turns):
     game_over = False
     msg = ""
-    turns = 7
     if ng[0] not in cg+wg:
-        if ng[0] in list(sw):
+        if ng[0] in sw:
             cg = cg + ng
             guesses = cg + wg
             w = mask_word(sw,guesses)
@@ -53,7 +52,10 @@ def move(sw,cg,wg,ng,turns):
                 game_over = False
         else:
             wg = wg + ng
-    turns = turns - len(wg)
+            turns = 7 - len(wg)
+            if turns == 0:
+                game_over = True
+                msg = "You lose , The word is {}".format(sw)
     return cg,wg,game_over,turns,msg
 
 

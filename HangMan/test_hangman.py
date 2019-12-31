@@ -86,7 +86,7 @@ def test_move_wrong_guess_lose():
 
     assert cg == ["c"]
     assert wg == ["x","m","n","o","r","y","l"]
-    assert game_over == False
+    assert game_over == True
     assert turns == 0
     
 def test_move_repeat_correct_normal():
