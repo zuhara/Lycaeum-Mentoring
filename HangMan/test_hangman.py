@@ -63,7 +63,7 @@ def test_move_correct_guess_win():
     assert wg == ["x"]
     assert game_over == True
     assert turns == 6
-    assert msg == "You win"
+    assert msg == "You win , The word is cat"
 
 def test_move_correct_guess_normal():
     cg,wg,game_over,turns,msg = hangman.move(sw="cat",cg=["c"],wg=["x"],ng=["t"],turns=6)
