@@ -47,7 +47,7 @@ def move(sw,cg,wg,ng,turns):
             w = mask_word(sw,guesses)
             if "_" not in w:
                 game_over = True
-                msg = "You win"
+                msg = "You win , The word is {}".format(sw)
             else:
                 game_over = False
         else:
@@ -58,5 +58,18 @@ def move(sw,cg,wg,ng,turns):
                 msg = "You lose , The word is {}".format(sw)
     return cg,wg,game_over,turns,msg
 
-
+def main():
+    sw = get_secret_word()
+    print(sw)
+    game_over = False
+    cg = []
+    wg = []
+    turns = 7
+    while not game_over:
+        s = status(sw,cg,wg,turns)
+        print(s)
+        ng = list(input("Enter lettter: "))
+        cg,wg,game_over,turns,msg = move(sw,cg,wg,ng,turns)
+        print(msg)
+main()
     

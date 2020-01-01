@@ -53,6 +53,10 @@ wrong guess ------>normal
 repeat correct letter
 repeat wrong letter
 
+enter digits
+
+enter two letters
+
 
 
 
