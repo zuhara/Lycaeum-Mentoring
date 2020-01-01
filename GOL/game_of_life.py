@@ -7,4 +7,9 @@ def function1(p):
          [False , False , False , False , False , False , False , False],
          [False , False , False , False , False , False , False , False],
          [False , False , False , False , False , False , False , False],]
-    return m
+    if p == []:
+        return m
+    else:
+        for i in p:
+            m[i[0]][i[1]] = True
+        return m
