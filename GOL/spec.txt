@@ -1,0 +1,2 @@
+No initial state-----> gives 10 * 10 matrix
+
