@@ -1,2 +1,2 @@
-No initial state-----> gives 10 * 10 matrix
+No initial state-----> gives 8 * 8 matrix
 
