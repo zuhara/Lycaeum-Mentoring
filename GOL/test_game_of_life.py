@@ -68,4 +68,24 @@ def test_rule_one_case_one():
          [False , False , False , False , False , False , False , False],
          [False , False , False , False , False , False , False , False],]
     assert a == e
+
+def test_rule_one_case_two():
+    list = [[False , False , False , False , False , False , False , False],
+            [False , False , False , False , False , False , False , False],
+            [False , False , False , False , False , False , False , False],
+            [False , False , False , True , False , False , False , False],
+            [False , False , False , True  , False , False , False , False],
+            [False , True , False , False , False , False , False , False],
+            [False , True , False , False , False , False , False , False],
+            [False , True , False , False , False , False , False , False],]
+    a = game_of_life.next_gen(l=list)
+    e = [[False , False , False , False , False , False , False , False],
+         [False , False , False , False , False , False , False , False],
+         [False , False , False , False , False , False , False , False],
+         [False , False , False , False , False , False , False , False],
+         [False , False , False , False , False , False , False , False],
+         [False , False , False , False , False , False , False , False],
+         [False , False , False , False , False , False , False , False],
+         [False , False , False , False , False , False , False , False],]
+    assert a == e
     

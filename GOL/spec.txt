@@ -1,2 +1,8 @@
-No initial state-----> gives 10 * 10 matrix
+1. No initial state-----> gives 8 * 8 matrix
+
+2. one live cell in initial state ----> 8*8 matrix,but the point which is live will be true
+3. same for two live cell
+4. same for many live cells
+
+5. next_gen is a function which takes a parameter a matrix(list inisde a list) and return a matrix
 
