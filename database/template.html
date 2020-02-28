@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<title>data</title>
+</head>
+
+<body>
+
+  <div class="py-4 bg-info">
+    <h1><center>Datas from database 'invoice'</center></h1>
+  
+  </div>
+  <div>
+    <table class="table">
+      <thead><tr>
+	  {%for i in headers %}
+	  <th scope="col" >{{ i }}</th>
+	  
+	  {% endfor %}
+      </tr></thead>
+      <tbody>
+  {% for data in datas %}
+    <tr>
+      
+      <td>{{ data[0] }}</td>
+   
+      <td>{{ data[1] }}</td>
+   
+      <td>{{ data[2] }}</td>
+    
+      <td>{{ data[3] }}</td>
+   
+      <td>{{ data[4] }}</td>
+    </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+ </div>
+</body>
+</html>
