@@ -1,11 +1,11 @@
-import random
- 
+''' Create tables,Insert values and Create a html using the values  '''
+
+import random 
 import faker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Integer, create_engine, ForeignKey, BLOB, Date, Boolean, Table
 from sqlalchemy.orm import sessionmaker, relationship
 
-import csv
  
 Base = declarative_base()
  
@@ -42,9 +42,11 @@ def get_session():
 
 def main(fname):
     create_db()
+    print('Tables created .....')
+    session = get_session()
     
     f = faker.Faker()
-    session = get_session()
+    
     for i in range(10):
         c = Customer(name = f.name(),
                      jdate = f.date(),
@@ -59,38 +61,51 @@ def main(fname):
             session.add(invoice)
     session.commit()
     print('Datas added ......')
+
+    headers = Customer.__table__.columns.keys()
+    #print(headers)    
+    h = ''
+    for i in headers:
+        h += '<th scope="col" >'+i+'</th>'
     
     results = session.query(Customer).all()
-    print(results)
-    
-    
-    headers = ['id', 'name', 'date', 'address','email']
-    
-    l = []
-    for i in headers:
-        s = '<th scope="col" >'+i+'</th>'
-        l.append(s)
-        
-    res = []
+    #print(results)
+    b = ''
     for i in results:
-        res.append([i.id,i.name,i.jdate,i.address,i.email])
+        m = ''
+        for j in headers:
+            z = getattr(i,j)
+            m += '<td>'+ str(z) +'</td>'
+        b += '<tr>'+ m +'</tr>'
     
-    m = []
-    for i in res:
-        m.append('<tr>')
-        for j in i:
-            s = '<td>'+str(j)+'</td>'
-            m.append(s)
-        m.append('</tr>')
+    # headers = ['id', 'name', 'date', 'address','email']
+    
+    # l = []
+    # for i in headers:
+    #     s = '<th scope="col" >'+i+'</th>'
+    #     l.append(s)
         
+    # res = []
+    # for i in results:
+    #     res.append([i.id,i.name,i.jdate,i.address,i.email])
+    
+    # m = []
+    # for i in res:
+    #     m.append('<tr>')
+    #     for j in i:
+    #         s = '<td>'+str(j)+'</td>'
+    #         m.append(s)
+    #     m.append('</tr>')
+       
     strr = '''<table class=\"table\">
-      <thead><tr>'''+'\n'.join(l)+'''</tr></thead>
-      <tbody>'''+'\n'.join(m)+'''</tbody></table>'''
+      <thead><tr>'''+ h +'''</tr></thead>
+      <tbody>'''+ b +'''</tbody></table>'''
        
     with open(fname,'wt') as f:
         f.write(strr)
 
     print("DONE !!!!!!")
+    print('Check the file ',fname)
 
 if __name__ == "__main__":
     main("data2.html")

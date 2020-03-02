@@ -1,3 +1,5 @@
+''' Taking values from the database and creating a html file with the datas  '''
+
 import psycopg2
 import jinja2
 import os
@@ -19,6 +21,7 @@ def main(fname):
         f.write(str)
 
     print("DONE !!!!!!")
+    print('Check the file ',fname)
 
 if __name__ == "__main__":
     main("data.html")

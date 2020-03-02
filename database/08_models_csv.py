@@ -1,5 +1,6 @@
-import random
- 
+''' Creating tables,Inserting values and Taking values from the database and putting it into csv files with SQLAlchemy   '''
+
+import random 
 import faker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Integer, create_engine, ForeignKey, BLOB, Date, Boolean, Table
@@ -42,9 +43,11 @@ def get_session():
  
 def main(fname):
     create_db()
+    print('Tables created .....')
+    
+    session = get_session()
     
     f = faker.Faker()
-    session = get_session()
     for i in range(10):
         c = Customer(name = f.name(),
                      jdate = f.date(),
@@ -61,20 +64,18 @@ def main(fname):
     print('Datas added ......')
     
     results = session.query(Customer).all()
-    print(results)
+    #print(results)
     
     with open(fname,'wt') as f:
         writer = csv.writer(f)
         writer.writerow(('id', 'name', 'date', 'address','email'))
         for i in results:
-            print('&&&&&&&&&',i.name)
+        
             id_,name,date,address,email = i.id,i.name,i.jdate,i.address,i.email
             csv_row = (id_,name,date,address,email)
             writer.writerow(csv_row)
-    print('CSV created .....')        
-    print("Done!!!!!!!!!!!!")    
- 
- 
+    print('CSV created .....')
+    print('Check the file ',fname)
  
 if __name__ == "__main__":
     main("data3.csv")

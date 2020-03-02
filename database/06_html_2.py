@@ -1,3 +1,5 @@
+''' creating a html file using the datas from the databse without jinja2 '''
+
 import psycopg2
 import os
 
@@ -29,6 +31,7 @@ def main(fname):
         f.write(strr)
 
     print("DONE !!!!!!")
+    print('Check the file ',fname)
 
 if __name__ == "__main__":
     main("data2.html")

@@ -1,3 +1,5 @@
+''' Taking values from database and putting it into a csv file  '''
+
 import psycopg2
 import csv
 
@@ -16,6 +18,7 @@ def main(fname):
             writer.writerow(csv_row)
             
     print("Done!!!!!!!!!!!!")
+    print('Check the file ',fname)
     
 if __name__ == "__main__":
     main("data2.csv")

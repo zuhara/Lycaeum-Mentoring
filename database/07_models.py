@@ -1,5 +1,6 @@
+''' Using SQLAlchemy creating tables and inserting datas(faker)  '''
+
 import random
- 
 import faker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Integer, create_engine, ForeignKey, BLOB, Date, Boolean, Table
@@ -56,10 +57,6 @@ def main():
                               customer = c)
             session.add(invoice)
     session.commit()
-                               
-     
- 
- 
- 
+print('DONE !!!!!')
 if __name__ == "__main__":
     main()

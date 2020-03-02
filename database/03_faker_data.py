@@ -1,3 +1,5 @@
+''' Inserting values into the database using faker library  '''
+
 from faker import Faker 
 import psycopg2
 

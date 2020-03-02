@@ -1,3 +1,5 @@
+'''Take values from a csv file and insert it into database'''
+
 import csv
 import psycopg2
 

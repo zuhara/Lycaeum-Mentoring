@@ -1,3 +1,5 @@
+''' Fetch values from the database and print in the terminal  '''
+
 import psycopg2
 
 def main():
