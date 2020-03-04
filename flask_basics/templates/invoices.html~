@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+  <title> List of invoices for {{customer.name}} </title>
+</head>
+<body>
+  <h1> List of invoices {{customer.name}}</h1>
+  <p>
+  <table>
+    <tr>
+      <th>Date</th> <th>Particulars</th> <th>Amount</th> 
+    </tr>
+    {% for invoice in invoices %}
+    <tr>
+      <td>{{invoice.date}}</td>
+      <td>{{invoice.particulars}}</td>
+      <td>{{invoice.amount}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <form action = "http://localhost:5000/add_invoice/" method = "POST">
+    <label for="date">Date :</label><br>
+    <input type="text" id="date" name="date" value=""><br>
+    <label for="particulars">Particulars :</label><br>
+    <input type="text" id="particulars" name="particulars" value=""><br><br>
+    <label for="amount">Amount :</label><br>
+    <input type="text" id="amount" name="amount" value=""><br>
+    <input type="submit" value="Submit">
+  </form>
+  </p>
+</body>
+</html>

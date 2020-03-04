@@ -1,0 +1,20 @@
+from flask import Flask, render_template, request
+ 
+import models
+ 
+app = Flask("lycaeum")
+ 
+@app.route("/")
+def hello():
+    session = models.get_session()
+    customers = session.query(models.Customer).all()
+    return render_template("customers.html", customers = customers)
+ 
+@app.route("/invoices")
+def invoices():
+    cid = request.args.get('cid')
+    session = models.get_session()
+    customer = session.query(models.Customer).filter(models.Customer.id == cid).first()
+    invoices = session.query(models.Invoice).filter(models.Invoice.customer_id == cid).all()
+     
+    return render_template("invoices.html", customer = customer, invoices = invoices)
