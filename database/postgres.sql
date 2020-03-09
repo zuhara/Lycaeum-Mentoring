@@ -25,4 +25,5 @@ DROP DATABASE invoice;
 
 SELECT * FROM customer;
 SELECT * FROM invoice_customer;
-SELECT * FROM invoice_invoice;
+SELECT * FROM invoice_invoice ;
+SELECT * FROM invoice_invoice WHERE id = '6';
